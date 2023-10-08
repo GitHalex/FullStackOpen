@@ -1,20 +1,29 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React, { useState } from "react";
 
-const App = () => {
-  const now = new Date();
-  const a = 10;
-  const b = 20;
-  console.log(now, a + b);
+const Footer = () => {
+  return (
+    <div>
+      greeting app created by <a href="https://github.com/mluukkai">mluukkai</a>
+    </div>
+  );
+};
+
+const App = (props) => {
+  const [counter, setCounter] = useState(0);
+
+  /*  setTimeout(() => setCounter(counter + 1), 1000); */
+  const handleClick = () => {
+    console.log("clicked");
+  };
+
+  console.log("rendering...", counter);
 
   return (
     <div>
-      <p>Hello world, it is {now.toString()}</p>
-      <p>
-        {a} plus {b} is {a + b}
-      </p>
+      <h2>contador: {counter}</h2>
+      <button onClick={() => setCounter(counter + 1)}>Plus</button>
+      <button onClick={() => setCounter(0)}>Zero</button>
+      <Footer />
     </div>
   );
 };
